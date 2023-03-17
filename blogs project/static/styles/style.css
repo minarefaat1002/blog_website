@@ -1,0 +1,195 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
+body {
+    background-color: #f1f1f1 !important;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300
+}
+
+.card {
+    border: none
+}
+
+.ellipsis {
+    color: #a09c9c
+}
+
+hr {
+    color: #a09c9c;
+    margin-top: 4px;
+    margin-bottom: 8px
+}
+
+.muted-color {
+    color: #a09c9c;
+    font-size: 13px
+}
+
+.ellipsis i {
+    margin-top: 3px;
+    cursor: pointer
+}
+
+.like {
+    background-color: transparent;
+    border: none;
+}
+
+.icons i {
+    font-size: 25px
+}
+
+.icons .fa-smile-o {
+    color: yellow;
+    font-size: 29px
+}
+
+.rounded-image {
+    border-radius: 50%!important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px
+}
+
+.name {
+    font-weight: 600
+}
+
+.comment-text {
+    font-size: 12px
+}
+
+.status small {
+    margin-right: 10px;
+    color: blue
+}
+
+.form-control {
+    border-radius: 26px
+}
+
+.comment-input {
+    position: relative
+}
+
+.fonts {
+    position: absolute;
+    right: 13px;
+    top: 8px;
+    color: #a09c9c
+}
+
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #8bbafe;
+    outline: 0;
+    box-shadow: none
+}
+
+.widget {
+    padding: 14px;
+    border-radius: 12px;
+    background-color: #fff !important;
+}
+
+.widget:nth-child(2) {
+    margin-top: 20px;
+}
+
+.widget li {
+    padding: 0.4rem 0.2rem 0.6rem;
+    text-transform: capitalize;
+    line-height: 1;
+    font-weight: 500;
+    position: relative;
+    margin: 0;
+    border-bottom: 1px dashed #dadada;
+}
+
+.widget h2 {
+    padding-left: 25px;
+}
+
+.widget li a {
+    text-decoration: none;
+    color: #5e5e5e;
+}
+
+
+/* profile_form*/
+
+.gutters {
+    margin-top: 20px !important;
+}
+
+.account-settings .user-profile {
+    margin: 0 0 1rem 0;
+    padding-bottom: 1rem;
+    text-align: center;
+}
+
+.account-settings .user-profile .user-avatar {
+    margin: 0 0 1rem 0;
+}
+
+.account-settings .user-profile .user-avatar img {
+    width: 90px;
+    height: 90px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+}
+
+.account-settings .user-profile h5.user-name {
+    margin: 0 0 0.5rem 0;
+}
+
+.account-settings .user-profile h6.user-email {
+    margin: 0;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #9fa8b9;
+}
+
+.account-settings .about {
+    margin: 2rem 0 0 0;
+    text-align: center;
+}
+
+.account-settings .about h5 {
+    margin: 0 0 15px 0;
+    color: #007ae1;
+}
+
+.account-settings .about p {
+    font-size: 0.825rem;
+}
+
+.form-control {
+    border: 1px solid #cfd1d8;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    font-size: .825rem;
+    background: #ffffff;
+    color: #2e323c;
+}
+
+.card {
+    background: #ffffff;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 0;
+    margin-bottom: 1rem;
+}
+
+.register div i {
+    margin-top: -32px;
+}
+
+nav .container-fluid .navbar-toggler {
+    background-color: #fff !important;
+}

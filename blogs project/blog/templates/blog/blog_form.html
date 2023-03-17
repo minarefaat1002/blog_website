@@ -1,0 +1,45 @@
+{%extends 'main.html'%}
+{%load static%}
+{%block content%}
+<div class="container d-flex mt-5 flex-column justify-content-center">
+<p class="text-center h1 fw-bold mb-5">Create your blog.</p>
+<form class="col-md-10 m-auto register" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="d-flex flex-row align-items-center">
+        <i class="fa-solid fa-tag me-3 fa-1xl"></i>
+        <div class="form-outline flex-fill mb-0">
+            {{form.title}}
+            <label class="form-label h4" for="form3Example1c">{{form.title.label}}</label>
+        </div>
+    </div>
+    <div class="d-flex flex-row align-items-center">
+        <i class="fa-solid fa-image fa-lg me-3 fa-fw"></i>
+        <div class="form-outline flex-fill mb-0">
+            {{form.featured_image}}
+            <label class="form-label h4" for="form3Example1c">{{form.featured_image.label}}</label>
+        </div>
+    </div>
+    <div class="d-flex flex-row align-items-center">
+       <i class="fa-brands fa-blogger-b fa-lg me-3 fa-fw"></i>
+        <div class="form-outline flex-fill mb-0">
+            {{form.content}}
+            <label class="form-label h4" for="form3Example1c">{{form.content.label}}</label>
+        </div>
+    </div>
+    <div class="d-flex flex-row align-items-center">
+        <i class="fa-solid fa-list fa-lg me-3 fa-fw"></i>
+        <div class="form-outline flex-fill mb-0">
+            {{form.category}}
+            <label class="form-label h4" for="form3Example1c">{{form.category.label}}</label>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+        <a href="{{request.META.HTTP_REFERER}}"><button type="button" class="btn btn-danger btn-lg me-3"><i class="fa-solid fa-backward"></i> Go Back</button></a>
+        <button type="submit" class="btn btn-success btn-lg"><i class="fa-solid fa-upload"></i> Post</button>
+    </div>
+
+</form>
+</div>
+
+{%endblock%}

@@ -1,0 +1,88 @@
+{%extends 'main.html'%}
+{%load static%}
+{%block content%}
+<div class="container mt-5 mb-5">
+    <div class="row d-flex justify-content-between">
+        <div class="col-md-8">
+            {%for blog in blogs%}
+            <div class="card">
+                <div class="d-flex justify-content-between p-2 px-3">
+                    <a href="{%url 'user-profile' blog.owner.id%}" class="text-decoration-none">
+                    <div class="d-flex flex-row align-items-center mb-3"> <img src="{{blog.owner.profile_image.url}}" width="50" class="rounded-circle">
+                        <div class="d-flex flex-column ms-2"> <span class="font-weight-bold" style="color:#000;">{{blog.owner.first_name}} {{blog.owner.last_name}}</span> <small class="text-primary">{{blog.owner.short_intro}}</small> </div>
+                    </div>
+                    </a>
+                    <div class="d-flex flex-row mt-1 ellipsis"> <small class="me-2">{{ blog.created|timesince }} ago</small>
+                        <div class="dropdown">
+                            <button class="dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" style="border: none;background: transparent;" aria-expanded="false">
+                                <i class="fa fa-ellipsis-h"></i>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                {%if request.user.profile == blog.owner%}
+                                <a href="{%url 'update-blog' blog.id%}?next=/blogs" class="text-decoration-none"><li><button class="dropdown-item" type="button"><i class="fa-solid fa-pen-to-square"></i> Edit</button></li></a>
+                                <a href="{%url 'delete-blog' blog.id%}?next=/blogs" class="text-decoration-none"><li><button class="dropdown-item" type="button"><i class="fa-solid fa-trash"></i> Delete</button></li></a>
+                                {%endif%}
+                                <a href="{%url 'favorite-add' blog.id%}" class="text-decoration-none"><li><button class="dropdown-item" type="button"><i class="fa-regular fa-bookmark"></i> Add to favorites</button></li></a>
+                            </ul>
+                        </div>
+                    </div>
+                </div> <img src="{{blog.featured_image.url}}" class="img-fluid">
+                <div class="p-2">
+                    <p class="text-justify">{{blog.title|slice:":200"|safe}} <a href="{%url 'blog' blog.id%}">Read more</a></p>
+                    <hr>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="d-flex flex-row icons d-flex align-items-center">
+                        </div>
+                        <div class="d-flex flex-row muted-color"><span>{{blog.total_likes}} Likes </span> &nbsp;&nbsp; <span>{{blog.total_comments}} Comments</span>&nbsp;&nbsp;<span>
+                            <a href="{%url 'favorite-add' blog.id%}"><i class="fa-{% if request.user.profile in blog.favorites.all %}solid{%else%}regular{%endif%} fa-bookmark" style="font-size:24px;color:#000;"></i></a></span> </div>
+                    </div>
+                    <hr>
+
+                </div>
+            </div>
+            {%endfor%}
+        </div>
+        <div class="col-md-4">
+            <div class="sidebar">
+                <div class="widget">
+                    <h2 class="widget-title mb-3">Popular Blogs</h2>
+                    <div class="blog-list-widget">
+                        <div class="list-group">
+                            {% for blog in popular_blogs%}
+                            <a href="{%url 'blog' blog.id%}" class="list-group-item list-group-item-action flex-column align-items-start">
+                                <div class="row align-items-center">
+                                    <div class="col-4 image"> <img src="{{blog.featured_image.url}}" alt="" class="rounded-circle float-left" width="100" height="100">
+                                    </div>
+                                    <div class="col-8 description">
+                                        <h5 class="mb-1">{{blog.title}}</h5>
+                                    </div>
+                                    <div class="meta">
+                                        <span><i class="fa-solid fa-calendar"></i>{{blog.created}}</span>
+                                        <span><img src="{{blog.owner.profile_image.url}}" width="20">{{blog.owner.first_name}} {{blog.owner.last_name}}</span>
+                                    </div>
+
+                                </div>
+                            </a>
+                            {%endfor%}
+                        </div>
+                    </div>
+                </div>
+                <div class="widget">
+                    <h2 class="widget-title">Popular Categories</h2>
+                    <div class="link-widget">
+                        <ul style="list-style-type:none;">
+                            {%for category in categories%}
+                            <li><a href="{%url 'category' category.name%}">{{category.name}} <span>({{category.blog_set.count}})</span></a></li>
+                            {%endfor%}
+                        </ul>
+                    </div>
+                    <!-- end link-widget -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{%endblock content%}
